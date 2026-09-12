@@ -2812,3 +2812,95 @@ html[data-theme="light"] .form-grid-v3 input::placeholder,
 html[data-theme="light"] .form-grid-v3 textarea::placeholder {
     color: #8a9ab0;
 }
+
+
+/* =========================================================
+   MENU MOBILE — CORREÇÃO V13
+   Evita corte em telas móveis e com barras dinâmicas do navegador.
+   ========================================================= */
+
+@media (max-width: 960px) {
+    .cabecalho {
+        z-index: 3000;
+    }
+
+    .menu-container {
+        position: relative;
+    }
+
+    .menu {
+        /* Fica ancorado exatamente abaixo do cabeçalho. */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        bottom: auto;
+
+        width: 100vw;
+
+        /* Fallback + viewport dinâmica para Chrome/Samsung/Brave mobile. */
+        height: calc(100vh - 90px);
+        height: calc(100dvh - 90px);
+        max-height: calc(100vh - 90px);
+        max-height: calc(100dvh - 90px);
+
+        padding:
+            18px
+            max(18px, env(safe-area-inset-right))
+            calc(28px + env(safe-area-inset-bottom))
+            max(18px, env(safe-area-inset-left));
+
+        background: var(--fundo);
+        border-top: 1px solid var(--borda-clara);
+        box-shadow: 0 22px 50px rgba(0, 0, 0, 0.28);
+
+        overflow-x: hidden;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+
+        transform: translateX(105%);
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
+        z-index: 3001;
+    }
+
+    .menu.aberto {
+        transform: translateX(0);
+    }
+
+    .menu > a,
+    .menu-link,
+    .menu-dropdown {
+        width: 100%;
+        flex: 0 0 auto;
+    }
+
+    .menu > a,
+    .menu-link {
+        min-height: 54px;
+        display: flex;
+        align-items: center;
+    }
+
+    .menu-dropdown.aberto .mega-menu {
+        max-height: none;
+    }
+
+    body.menu-aberto {
+        overflow: hidden;
+        overscroll-behavior: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .menu {
+        padding-top: 14px;
+    }
+
+    .menu > a,
+    .menu-link {
+        padding: 15px 16px;
+        font-size: 1rem;
+    }
+}

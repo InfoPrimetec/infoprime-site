@@ -1,0 +1,9 @@
+InfoPrime Site — Release v13
+
+Correções:
+- Menu mobile ancorado abaixo do cabeçalho.
+- Uso de 100dvh com fallback em 100vh para evitar corte pelas barras do navegador móvel.
+- Rolagem interna segura no menu, incluindo safe areas.
+- Tawk.to é ocultado automaticamente enquanto o menu mobile está aberto e reaparece ao fechar.
+- Mantido o título da Home sem a palavra "pequenas".
+- Cache busting atualizado para v13.

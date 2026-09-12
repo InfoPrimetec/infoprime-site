@@ -62,6 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
         botaoMenu?.setAttribute("aria-expanded", "false");
         botaoMenu?.setAttribute("aria-label", "Abrir menu");
         document.body.classList.remove("menu-aberto");
+        sincronizarTawkComMenu();
     };
     
     botaoMenu?.addEventListener("click", () => {
@@ -70,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
         botaoMenu.setAttribute("aria-expanded", String(aberto));
         botaoMenu.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu");
         document.body.classList.toggle("menu-aberto", aberto);
+        sincronizarTawkComMenu();
     });
     
     linksMenu.forEach(link => link.addEventListener("click", fecharMenu));
@@ -101,6 +103,22 @@ document.addEventListener("DOMContentLoaded", () => {
     
     configurarCarrossel();
 });
+
+
+function sincronizarTawkComMenu() {
+    const api = window.Tawk_API;
+    if (!api) return;
+
+    const menuAberto = document.body.classList.contains("menu-aberto");
+
+    try {
+        if (menuAberto && typeof api.hideWidget === "function") {
+            api.hideWidget();
+        } else if (!menuAberto && typeof api.showWidget === "function") {
+            api.showWidget();
+        }
+    } catch (_) {}
+}
 
 function configurarTema() {
     const botoes = [...document.querySelectorAll("[data-theme-toggle]")];
@@ -266,6 +284,11 @@ function configurarTawkTo() {
     }
 
     window.Tawk_API = window.Tawk_API || {};
+    const onLoadAnterior = window.Tawk_API.onLoad;
+    window.Tawk_API.onLoad = function() {
+        if (typeof onLoadAnterior === "function") onLoadAnterior();
+        sincronizarTawkComMenu();
+    };
     window.Tawk_LoadStart = new Date();
 
     const s1 = document.createElement("script");
