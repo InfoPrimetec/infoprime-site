@@ -1,0 +1,15 @@
+InfoPrime Tecnologia — Produção v10
+Data: 11/09/2026
+
+Melhorias desta versão:
+- imagens de fundo pesadas recomprimidas em WebP de alta qualidade;
+- imagem social JPEG 1200x630 criada a partir do hero existente;
+- width/height explícitos, decoding assíncrono e carregamento lazy nas imagens fora do primeiro bloco;
+- imagens prioritárias do hero/cabeçalho mantidas como eager/high;
+- Open Graph e Twitter Cards adicionados às páginas principais;
+- JSON-LD da InfoPrime (Organization/ProfessionalService) adicionado;
+- página 404 personalizada para GitHub Pages;
+- background-attachment fixed desativado em telas <= 960px para reduzir repaints;
+- cache-busting atualizado para v10;
+- Blog continua noindex até a publicação do conteúdo;
+- Tawk.to ainda não incluído: aguarda o snippet oficial da conta.

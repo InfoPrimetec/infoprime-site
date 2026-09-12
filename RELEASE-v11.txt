@@ -1,0 +1,8 @@
+InfoPrime Site — Release v11
+
+Alterações:
+- Integração do Tawk.to centralizada no script.js.
+- Widget carregado de forma assíncrona em todas as páginas que usam script.js, incluindo a 404.
+- Proteção contra carregamento duplicado do embed.
+- Atualização de cache busting para script.js?v=20260911-v11.
+- Mantidas otimizações da v10 (SEO, Open Graph, JSON-LD, lazy loading, 404 personalizada e compressão de imagens).

@@ -1,0 +1,10 @@
+InfoPrime Site — Release v12
+
+Refinamento do tema claro:
+- nova paleta clara com mais contraste e identidade corporativa;
+- cabeçalho, menu e mega menu mais harmônicos no light mode;
+- hero do tema claro com sobreposição menos lavada e gradiente mais consistente;
+- seções alternadas em tons claros azulados para dar profundidade;
+- cartões, CTAs e formulários com superfícies mais limpas;
+- rodapé, logo e elementos de navegação com melhor presença visual no tema claro;
+- cache busting do CSS atualizado para v12.
